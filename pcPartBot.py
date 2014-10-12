@@ -35,7 +35,7 @@ import datetime
 import getpass
 
 #	Bot Info
-USERAGENT = "PcPartPickerBot 0.6 by /u/ProdigyDoo"
+USERAGENT = "PcPartPickerBot by /u/ProdigyDoo"
 USERNAME = ''
 PASS = ''
 r=''
@@ -236,6 +236,7 @@ def main():
 	#Praw Setup
 	r = praw.Reddit(USERAGENT)
 	r.login(USERNAME, PASS)
+	print('Login Succesfull')
 	while True:
 		if runs % 5 == 0:
 			showStats()
