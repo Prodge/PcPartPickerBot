@@ -201,7 +201,7 @@ def scanSub(sub):
 					continue
 				post.reply(generateComment(link))
 				logComment(str(pid))
-				print('----Replied to: ' + pbody[:80])
+				print('----Replied to: "' + pbody[:80] + '"...')
 				replyCount += 1
 	print('--Finished Scan with ' + str(replyCount) + ' Replies')
 	return replyCount
