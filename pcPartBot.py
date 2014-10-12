@@ -3,6 +3,7 @@
 	By Prodge
 	Prodge.net
 	https://github.com/Prodge
+	https://github.com/Prodge/PcPartPickerBot
 
 Info:
 - This bot uses Praw to access the Reddit API.
@@ -144,7 +145,8 @@ def generateComment(link):
 	output += '| ' + ''.join([' ' for i in range(supplierWidth)])
         output += '|' + newline
 	output += '^Prices ^are ^in ?USD.' + newline + newline
-	output += '^This ^bot ^is ^still ^in ^beta, ^PM ^to ^report ^issues ^or ^for ^suggestions*' 
+	output += '^This ^bot ^is ^still ^in ^beta, ^PM ^to ^report ^issues ^or ^for ^suggestions*' + newline + newline
+	output += '[Source Code](https://github.com/Prodge/PcPartPickerBot)'
 	return output
 
 #Returns true if the bot hasn't previously replied to the given comment pid
