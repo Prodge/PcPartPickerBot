@@ -22,10 +22,9 @@ Dependencies:
 
 Todo:
 - nationality support
-- maybe print ttl in multiple currency will need to re-scrape for dif pricing
 - add support for delete on -ve karma
 - link products
-- display link to build
+- scrape estimated wattage from ppp link
 '''
 
 import urllib2
@@ -45,7 +44,7 @@ commentLog = 'pcPartPickerBotLog.txt'
 #	Function Constraints
 MAXPOSTS = 99
 WAIT = 30
-SUBREDDITS = ['buildapc', 'buildapcforme', 'buildapcsales', 'pcassembly', 'shittybattlestations',
+SUBREDDITS = ['buildapc', 'buildapcforme', 'buildapcsales', 'pcassembly', 
 		 'battlestations', 'gamingpc', 'hardwareswap', 'buildapc', 'pcmasterrace']
 #	Statistics
 repliesTotal = 0
@@ -149,7 +148,9 @@ def generateComment(link, url):
 	output += '| ' + ''.join([' ' for i in range(supplierWidth)])
         output += '|' + newline
 	output += '*Prices are in USD.*' + newline + newline
-	output += '[Part List](pcpartpicker.com/p/' + url + ')' + newline + newline
+	output += '[Part List](pcpartpicker.com/p/' + url 
+	output += ') -- [Breakdown by Supplier](pcpartpicker.com/p/' + url + '/by_merchant/)' 
+	output += '[Edit This Parts List ](pcpartpicker.com/p/' + url + '#partlist_edit)'  + newline + newline
 	output += '***' + newline + newline
 	output += '*This bot is still in beta, PM to report issues or for suggestions*' + newline + newline
 	output += '[Bot Source Code](https://github.com/Prodge/PcPartPickerBot)'
