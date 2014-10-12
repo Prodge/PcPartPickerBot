@@ -16,8 +16,7 @@ Dependencies:
 - PRAW: https://praw.readthedocs.org/en/v2.1.16/
 - Errors and comments are logged in text files that are not automatically 
   generated and so they will have to be created before running this script.
-  The files should be in the same directory as the script and the 
-  filenames are listed below.
+  The required txt files for logging are in this repo (name sensitive)
 
 
 Feel free to copy this code, a comment with a link to this repo may help others or you in the future
