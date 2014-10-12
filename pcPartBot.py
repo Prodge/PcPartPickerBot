@@ -32,6 +32,8 @@ import urllib2
 import praw
 import time
 import datetime
+import getpass
+
 #	Bot Info
 USERAGENT = "PcPartPickerBot 0.6 by /u/ProdigyDoo"
 USERNAME = ''
@@ -230,7 +232,7 @@ def main():
 	global r
 	#Login information input from user so its not stored in the script
 	USERNAME = raw_input('Enter Bot Username: ')
-	PASS = raw_input('Enter Bot Password: ')
+	PASS = getpass.getpass('Enter Bot Password: ')
 	#Praw Setup
 	r = praw.Reddit(USERAGENT)
 	r.login(USERNAME, PASS)
