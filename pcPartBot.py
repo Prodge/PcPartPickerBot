@@ -215,7 +215,7 @@ def showStats():
 	global startingTime
 	now = datetime.datetime.now()
 	elapsedTime = now - startingTime
-	elapsedTimeSecs = elapsedTime.total_seconds()
+	elapsedTimeSecs = (elapsedTime.microseconds + (elapsedTime.seconds + elapsedTime.days * 24 * 3600) * 10**6) / 10**6
 	timeRunDays = elapsedTimeSecs // 60 // 60 // 24
 	timeRunHours = elapsedTimeSecs // 60 // 60 % 24
 	timeRunMins = elapsedTimeSecs // 60 % 60
