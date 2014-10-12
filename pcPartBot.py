@@ -117,7 +117,7 @@ def scrapePartlist(url):
 	return [items, prices, suppliers]
 
 #Produces and returns a table (formatted for reddit) from the array returned from scrapePartList()
-def generateComment(link):
+def generateComment(link, url):
 	partList = scrapePartlist('http://pcpartpicker.com/p/' + link)
 	#Checking for a clean pc part picker page (not missing any prices)
 	if len(partList[0]) != len(partList[1]) != len(partList[2]) or len(partList[0]) == 0:
@@ -148,9 +148,11 @@ def generateComment(link):
 	output += '| **$' + str(ttlPrice) + '**' + ''.join([' ' for o in range(priceWidth - len(str(ttlPrice)) + 1)])
 	output += '| ' + ''.join([' ' for i in range(supplierWidth)])
         output += '|' + newline
-	output += '^Prices ^are ^in ^USD.' + newline + newline
-	output += '^This ^bot ^is ^still ^in ^beta, ^PM ^to ^report ^issues ^or ^for ^suggestions' + newline + newline
-	output += '[Source Code](https://github.com/Prodge/PcPartPickerBot)'
+	output += '*Prices are in USD.*' + newline + newline
+	output += '[Part List](pcpartpicker.com/p/' + url + ')' + newline + newline
+	output += '***' + newline + newline
+	output += '*This bot is still in beta, PM to report issues or for suggestions*' + newline + newline
+	output += '[Bot Source Code](https://github.com/Prodge/PcPartPickerBot)'
 	return output
 
 #Returns true if the bot hasn't previously replied to the given comment pid
@@ -200,10 +202,10 @@ def scanSub(sub):
 		if 'pcpartpicker.com/p/' in pbody and not containsTable(pbody) and pauthor.lower() != USERNAME.lower():
 			if noMatch(pid):
 				link = getLink(pbody)
-				comment = generateComment(link)
+				comment = generateComment(link, link)
 				if comment == '-1':
 					continue
-				post.reply(generateComment(link))
+				post.reply(comment)
 				logComment(str(pid))
 				print('----Replied to: "' + pbody[:80] + '"...')
 				replyCount += 1
