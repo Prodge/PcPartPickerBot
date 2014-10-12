@@ -4,6 +4,7 @@
 	Prodge.net
 	https://github.com/Prodge
 	https://github.com/Prodge/PcPartPickerBot
+	http://www.reddit.com/user/PcPartPickerBot
 
 Info:
 - This bot uses Praw to access the Reddit API.
