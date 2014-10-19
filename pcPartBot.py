@@ -119,7 +119,8 @@ def scrapePartlist(url):
 def generateComment(link):
 	partList = scrapePartlist('http://pcpartpicker.com/p/' + link)
 	#Checking for a clean pc part picker page (not missing any prices)
-	if len(partList[0]) != len(partList[1]) != len(partList[2]) or len(partList[0]) == 0:
+	if len(partList[0]) != len(partList[1]) or len(partList[2]) != len(partList[0]) or len(partList[1]) != len(partList[2]) or len(partList[0]) == 0:
+		print('missmatch length', link)
 		return '-1'
 	#Preparing Vars for commont generation
 	output = ''
