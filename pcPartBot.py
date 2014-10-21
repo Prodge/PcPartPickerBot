@@ -112,7 +112,7 @@ def scrapePartlist(url):
 
 #Produces and returns a table (formatted for reddit) from the array returned from scrapePartList()
 def generateComment(link):
-	partList = scrapePartlist('http://pcpartpicker.com/p/' + link)
+	partList = scrapePartlist(link)
 	#Checking for a clean pc part picker page (not missing any prices)
 	if len(partList[0]) != len(partList[1]) or len(partList[2]) != len(partList[0]) or len(partList[1]) != len(partList[2]) or len(partList[0]) == 0:
 		return '-1'
@@ -164,9 +164,15 @@ def noMatch(pid):
 
 #Extracts the unique ID of the build given the comment body
 def getLink(post):
+	link = []
 	for i in range(len(post)):
 		if post[i:i+19] == 'pcpartpicker.com/p/':
-			return post[i+19:i+19+6]
+			link[1] = post[i+19:i+19+6]
+			link[0] = post[i-3:i-1]
+	lang['au','ca','de','es','it','nz','uk']
+	if link[0] not in lang:
+		link[0] = ''
+	return link
 
 #Returns true if the comment already contains a table
 def containsTable(post):
@@ -197,7 +203,7 @@ def scanSub(sub):
 		if 'pcpartpicker.com/p/' in pbody and not containsTable(pbody) and pauthor.lower() != USERNAME.lower():
 			if noMatch(pid):
 				link = getLink(pbody)
-				comment = generateComment(link)
+				comment = generateComment('http://' + link[0] + 'pcpartpicker.com/p/' + link[1])
 				if comment == '-1':
 					continue
 				post.reply(comment)
