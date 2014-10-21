@@ -142,11 +142,12 @@ def generateComment(link):
 	output += '| **$' + str(ttlPrice) + '**' + ''.join([' ' for o in range(priceWidth - len(str(ttlPrice)) + 1)])
 	output += '| ' + ''.join([' ' for i in range(supplierWidth)])
         output += '|' + newline
-	output += '*Prices are in USD.*' + newline + newline
 	output += '[Part List](' + link
 	output += ') -- [Breakdown by Supplier](http://pcpartpicker.com/p/' + link + '/by_merchant/)' + newline + newline
 	output += '***' + newline + newline
 	output += '*This bot is still in beta, PM to report issues or for suggestions*' + newline + newline
+	output += '*Non USD prices are currently experimental*' + newline + newline
+	output += '*Please reply to the bot if you see an error*' + newline + newline
 	output += '[Bot Source Code](https://github.com/Prodge/PcPartPickerBot)'
 	return output
 
@@ -167,11 +168,13 @@ def getLink(post):
 	link = []
 	for i in range(len(post)):
 		if post[i:i+19] == 'pcpartpicker.com/p/':
-			link[1] = post[i+19:i+19+6]
-			link[0] = post[i-3:i-1]
-	lang['au','ca','de','es','it','nz','uk']
+			link.append(post[i-3:i-1])
+			link.append(post[i+19:i+19+6])
+	lang = ['au','ca','de','es','it','nz','uk']
 	if link[0] not in lang:
 		link[0] = ''
+	else:
+		link[0] += '.'
 	return link
 
 #Returns true if the comment already contains a table
