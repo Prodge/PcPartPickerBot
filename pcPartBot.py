@@ -20,11 +20,6 @@ Dependencies:
   The files should be in the same directory as the script and the 
   filenames are listed below.
 
-Todo:
-- nationality support
-- add support for delete on -ve karma
-- link products
-- scrape estimated wattage from ppp link
 '''
 
 import urllib2
