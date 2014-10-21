@@ -144,7 +144,7 @@ def generateComment(link):
         output += '|' + newline
 	output += '*Prices are in USD.*' + newline + newline
 	output += '[Part List](http://pcpartpicker.com/p/' + link
-	output += ') -- [Breakdown by Supplier](http://pcpartpicker.com/p/' + link + '/by_merchant/) -- ' + newline + newline
+	output += ') -- [Breakdown by Supplier](http://pcpartpicker.com/p/' + link + '/by_merchant/)' + newline + newline
 	output += '***' + newline + newline
 	output += '*This bot is still in beta, PM to report issues or for suggestions*' + newline + newline
 	output += '[Bot Source Code](https://github.com/Prodge/PcPartPickerBot)'
