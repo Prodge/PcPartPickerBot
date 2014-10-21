@@ -23,3 +23,14 @@ Dependencies:
 
 
 Feel free to copy this code, a comment with a link to this repo may help others or you in the future
+
+
+TODO:
+- Multi nationality support
+- Support for delete on -ve karma
+- Link products in table
+- Scrape estimated wattage
+- Add over comment protection
+	- Pause after making comment
+	- Skip that sub on next rotation
+	- Limit number of replies per thread depending on the threads total comments
