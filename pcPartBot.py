@@ -40,7 +40,7 @@ commentLog = 'pcPartPickerBotLog.txt'
 MAXPOSTS = 99
 WAIT = 30
 SUBREDDITS = ['buildapc', 'buildapcforme', 'buildapcsales', 'pcassembly', 
-		 'battlestations', 'gamingpc', 'hardwareswap', 'buildapc', 'pcmasterrace']
+		'battlestations', 'gamingpc', 'hardwareswap', 'buildapc', 'pcmasterrace']
 #	Statistics
 repliesTotal = 0
 errorCount = 0
@@ -143,7 +143,7 @@ def generateComment(link):
 	output += '| ' + ''.join([' ' for i in range(supplierWidth)])
         output += '|' + newline
 	output += '*Prices are in USD.*' + newline + newline
-	output += '[Part List](http://pcpartpicker.com/p/' + link
+	output += '[Part List](' + link
 	output += ') -- [Breakdown by Supplier](http://pcpartpicker.com/p/' + link + '/by_merchant/)' + newline + newline
 	output += '***' + newline + newline
 	output += '*This bot is still in beta, PM to report issues or for suggestions*' + newline + newline
