@@ -34,3 +34,4 @@ TODO:
 	- Pause after making comment
 	- Skip that sub on next rotation
 	- Limit number of replies per thread depending on the threads total comments
+- Give total price in multiple currencies. (Rescrape, not direct convertion))
